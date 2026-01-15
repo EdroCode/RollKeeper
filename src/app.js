@@ -113,20 +113,91 @@ const templates = {
         </div>
     </div>
   `,
-  preset: `
-    <template id="preset-template">
-
-        <div class="flex flex-col gap-1 bg-white border rounded-2xl p-2 border-black shadow-xl w-64 h-64">
-            <div class="flex items-center  gap-1">
-                <!-- Icon -->
-                <h1 class="text-lg font-semibold">PresetName</h1>
-            </div>
-            <hr>
-            <div class="flex flex-col w-full h-full justify-between py-1">
-
-            </div>
+    initiativepreset: `
+    <div class="flex flex-col gap-1 bg-white border rounded-2xl p-2 border-black  h-fit min-w-64">
+        <div class="flex items-center justify-between  gap-1">
+            <h1 class="text-lg font-semibold">Initiative Tracker</h1>
+            <button class="cursor-pointer" onclick="deleteTemplate('diceroller')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+            </svg>
+        </button>
         </div>
-    </template>
+        <hr>
+        <div id="initTrackerModules" class="flex flex-col w-full h-full justify-start py-1 gap-2">
+            
+            
+        </div>
+        <button class="flex items-center justify-center cursor-pointer border rounded-xl hover:text-white hover:bg-black "
+                onclick="loadInitModule('initiativeTrackerSelect')"
+            >
+            +
+        </button>
+    </div>
+    `,
+    initiativeTrackerSelect: `
+    <div class="flex gap-1 bg-white border rounded-xl p-2 border-black w-full ">
+        <div class="border rounded-xl">
+            <select name="type" class="cursor-pointer rounded-xl p-1">
+            <option value="Enemy">Enemy</option>
+            <option value="Ally">Ally</option>
+            </select>
+        </div>
+
+        <input class="pl-2 auto-width" placeholder="Name">
+
+        <div class="flex gap-1 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+            stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+            </svg>
+
+            <input placeholder="100" class="w-10 text-center ">
+        </div>
+    </div>
+
+    `,
+
+    note: `
+    <div class="flex flex-col gap-2 bg-white border rounded-2xl p-2 border-black w-min min-w-64 h-min">
+        <div class="flex items-center justify-between gap-1">
+            <input placeholder="Note" class="text-lg font-semibold w-full pl-2 outline-none">
+            <button class="cursor-pointer hover:text-red-600 transition-colors" >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                </svg>
+            </button>
+        </div>
+        <hr>
+        <textarea
+            id="noteTextarea"
+            class="p-1 mb-1 border-none outline-none resize"
+            placeholder="Write your note here..."
+            oninput="autoGrow(this)"
+            rows="1"
+            style="min-width: 240px;"
+        ></textarea>
+    </div>
+    `,
+
+    preset: `
+ 
+    <div class="flex flex-col gap-1 bg-white border rounded-2xl p-2 border-black shadow-xl w-64 h-64">
+        <div class="flex items-center justify-between  gap-1">
+            <!-- Icon -->
+            <h1 class="text-lg font-semibold">PresetName</h1>
+            <button class="cursor-pointer" onclick="deleteTemplate('diceroller')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+            </svg>
+        </button>
+        </div>
+        <hr>
+        <div class="flex flex-col w-full h-full justify-between py-1">
+
+        </div>
+    </div>
   `
 
 
@@ -238,4 +309,22 @@ function rollDice (sides) {
 
 
 
+}
+
+
+// INITIATIVE TRACKER
+
+function loadInitModule(name) {
+    
+    const initTracker = document.getElementById('initTrackerModules');
+    const add = templates[name]
+    console.log(`spawning ${name} into dashboard`)
+    initTracker.innerHTML += add
+}
+
+
+function autoGrow(element) {
+    element.style.height = "auto";
+    element.style.height = (element.scrollHeight) + "px";
+    
 }
