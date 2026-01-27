@@ -2,10 +2,6 @@ const sidebar = document.getElementById("sidebar")
 const dash = document.getElementById("dashboard")
 
 const turnOrderTemplates = {
-    turnLabel: `
-    
-        <li draggable="true" ondragover="dragOver(event)" ondblclick="this.remove()"  ondragstart="dragStart(event)" class="cursor-grab "><input class="border-b hover:border-red-700 pl-1 py-2 w-full cursor-grab" placeholder="Name"></li>
-    `,
     preset2: `
         <div class="flex gap-2">
             <h1 class="flex border w-1/4 items-center justify-center rounded-lg">1</h1>
@@ -268,10 +264,13 @@ function loadTemplate(name) {
                 ${add}
             </div>
         `;
-    }
+    }   
+
+
     
     console.log(`spawning ${name} into dashboard`);
     dash.insertAdjacentHTML('beforeend', newDiv);
+
 }
 
 
@@ -428,5 +427,22 @@ function addOrder(base){
 
 
 
+function save_local(){
+
+    const v1 = document.getElementById('item-0');
+    const type = v1.querySelector('#diceroller');
+    const currentRoll = type.querySelector('#diceShow');
 
 
+    localStorage.setItem("item1", v1);
+
+}
+
+function load_local(){
+
+    const item1 = localStorage.getItem("item1")
+    dash.innerHTML += item1;
+
+
+
+}
