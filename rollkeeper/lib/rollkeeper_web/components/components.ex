@@ -7,7 +7,7 @@ defmodule RollkeeperWeb.Components do
       import RollkeeperWeb.Components.Navbar
       import RollkeeperWeb.Components.Card
       import RollkeeperWeb.Components.Sidebar
-
+      import RollkeeperWeb.Components.Block
     end
   end
 end

@@ -3,12 +3,7 @@ defmodule RollkeeperWeb.Components.Navbar do
 
   def navbar(assigns) do
     ~H"""
-      <navbar class="bg-amber-300">
-
-
-
-      </navbar>
+    <navbar class="bg-amber-300"></navbar>
     """
   end
-
 end
