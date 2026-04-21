@@ -24,7 +24,7 @@ defmodule RollkeeperWeb.Components.DiceRoller do
 
   def render(assigns) do
     ~H"""
-    <div class="w-72 rounded-3xl bg-zinc-950 text-white hover:shadow-md border border-zinc-800 overflow-hidden">
+    <div class="w-72 h-fit rounded-3xl bg-zinc-950 text-white hover:shadow-md border border-zinc-800 overflow-hidden">
       <div class="px-6 pt-6 pb-5 border-b border-zinc-800  from-zinc-900 to-zinc-950">
         <div class="flex justify-between">
           <p class="text-[11px] uppercase tracking-[0.25em] text-zinc-200 mb-3 font-extrabold">

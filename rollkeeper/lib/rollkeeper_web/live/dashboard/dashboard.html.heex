@@ -1,8 +1,15 @@
 <div class="flex h-screen">
-  <.sidebar />
+  <.sidebar>
+    <:items>
+      <.block class="hero-cake" title="Dice Roller" />
+      <.block class="hero-home" title="Home" />
+      <.block class="hero-users" title="Players" />
+    </:items>
+  </.sidebar>
   <section class="w-full h-full p-2 ">
-    <div class="border rounded-2xl w-full h-full p-4">
+    <div class="flex border rounded-2xl w-full h-full p-4 gap-4">
       <.dice_roller id="1" />
+      <.clock id="1" />
     </div>
   </section>
 </div>

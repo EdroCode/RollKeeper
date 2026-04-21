@@ -8,6 +8,7 @@ defmodule RollkeeperWeb.Components do
       import RollkeeperWeb.Components.Card
       import RollkeeperWeb.Components.Sidebar
       import RollkeeperWeb.Components.Block
+      import RollkeeperWeb.Components.Clock
     end
   end
 end
