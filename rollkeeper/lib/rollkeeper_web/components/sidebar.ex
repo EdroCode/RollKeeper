@@ -2,6 +2,20 @@ defmodule RollkeeperWeb.Components.Sidebar do
   use Phoenix.LiveComponent
   import RollkeeperWeb.CoreComponents
 
+  @moduledoc """
+  Collapsible sidebar component for the RollKeeper dashboard.
+
+  Renders a narrow icon-only sidebar that expands on hover.
+
+  ## Example
+    <.live_component module={RollkeeperWeb.Components.Sidebar} id="sidebar">
+      <:items>
+        <.sidebar_item icon="hero-home" label="Dashboard" href="/" />
+        <.sidebar_item icon="hero-user" label="Characters" href="/characters" />
+      </:items>
+    </.live_component>
+  """
+
   slot :items
 
   def sidebar(assigns) do

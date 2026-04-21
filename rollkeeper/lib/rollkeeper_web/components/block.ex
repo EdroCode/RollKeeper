@@ -1,6 +1,17 @@
 defmodule RollkeeperWeb.Components.Block do
   use Phoenix.LiveComponent
 
+  @moduledoc """
+  A clickable sidebar block item with an icon and an label.
+
+  ## Example
+
+    <.live_component module={RollkeeperWeb.Components.Block} id="block-dashboard"
+      title="Dashboard"
+      class="hero-home"
+    />
+  """
+
   attr :title, :string, default: "Title"
   attr :class, :string, default: ""
 
