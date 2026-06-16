@@ -1,4 +1,12 @@
-export default function () {
+"use client";
+
+import { Dice6 } from "lucide-react";
+
+export default function Sidebar({
+  onAddWidget,
+}: {
+  onAddWidget: (type: "dice") => void;
+}) {
   return (
     <aside className="w-52 shrink-0 border-r border-zinc-800 bg-zinc-950 flex flex-col">
       <div className="flex items-center gap-3 px-4 py-5 border-b border-zinc-800">
@@ -19,9 +27,13 @@ export default function () {
 
         <div className="space-y-1">
           <button
+            onClick={() => onAddWidget("dice")}
             className="w-full flex items-center gap-2 px-3 py-2 text-sm font-medium text-white rounded-md
-                        hover:bg-zinc-800 active:bg-zinc-700 transition-colors"
+                       hover:bg-zinc-800 active:bg-zinc-700 transition-colors cursor-pointer"
           >
+            <span>
+              <Dice6 />
+            </span>
             Dice Roller
           </button>
         </div>
