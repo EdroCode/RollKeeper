@@ -2,9 +2,16 @@
 
 import { useState } from "react";
 import Sidebar from "@/components/sidebar";
-import DiceRoller from "@/components/dice_roller";
 
-type Widget = { id: string; type: "dice" };
+import { Widget } from "../types/widgets";
+
+import DiceRoller from "@/components/diceRoller";
+import HealthBar from "@/components/healthBar";
+
+const widgetMap = {
+  dice: DiceRoller,
+  health: HealthBar,
+};
 
 export default function Dashboard() {
   const [widgets, setWidgets] = useState<Widget[]>([]);
@@ -22,14 +29,11 @@ export default function Dashboard() {
       <Sidebar onAddWidget={addWidget} />
 
       <main className="flex-1 overflow-auto p-6 bg-zinc-50">
-        <div className="grid grid-cols-3 gap-80">
+        <div className="grid grid-cols-3 gap-4">
           {widgets.map((w) => {
-            switch (w.type) {
-              case "dice":
-                return (
-                  <DiceRoller key={w.id} onClose={() => removeWidget(w.id)} />
-                );
-            }
+            const Component = widgetMap[w.type];
+
+            return <Component key={w.id} onClose={() => removeWidget(w.id)} />;
           })}
         </div>
       </main>

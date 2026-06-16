@@ -1,42 +1,34 @@
 "use client";
 
-import { Dice6 } from "lucide-react";
+import { WidgetType } from "@/app/types/widgets";
+import { Dice6, HeartIcon } from "lucide-react";
 
-export default function Sidebar({
-  onAddWidget,
-}: {
-  onAddWidget: (type: "dice") => void;
-}) {
+type Props = {
+  onAddWidget: (type: WidgetType) => void;
+};
+
+export default function Sidebar({ onAddWidget }: Props) {
   return (
-    <aside className="w-52 shrink-0 border-r border-zinc-800 bg-zinc-950 flex flex-col">
-      <div className="flex items-center gap-3 px-4 py-5 border-b border-zinc-800">
-        <img src="/d20White.svg" alt="D20 logo" className="h-10 w-10" />
-
-        <div className="leading-tight">
-          <p className="text-white text-lg font-semibold tracking-tight">
-            RollKeeper
-          </p>
-          <p className="text-zinc-400 text-xs font-medium">Dashboard</p>
-        </div>
+    <aside className="w-56 shrink-0 border-r border-zinc-800 bg-zinc-950 text-white flex flex-col">
+      <div className="px-4 py-5 border-b border-zinc-800">
+        <h1 className="text-lg font-bold">RollKeeper</h1>
+        <p className="text-xs text-zinc-400">RPG Dashboard</p>
       </div>
 
-      <nav className="flex-1 p-3">
-        <p className="px-2 pb-2 text-[10px] font-semibold text-zinc-500 uppercase tracking-widest">
-          Tools
-        </p>
+      <nav className="flex-1 p-3 space-y-2">
+        <button
+          onClick={() => onAddWidget("dice")}
+          className="flex gap-2 w-full text-left px-3 py-2 rounded-md hover:bg-zinc-800 transition"
+        >
+          <Dice6 /> Dice Roller
+        </button>
 
-        <div className="space-y-1">
-          <button
-            onClick={() => onAddWidget("dice")}
-            className="w-full flex items-center gap-2 px-3 py-2 text-sm font-medium text-white rounded-md
-                       hover:bg-zinc-800 active:bg-zinc-700 transition-colors cursor-pointer"
-          >
-            <span>
-              <Dice6 />
-            </span>
-            Dice Roller
-          </button>
-        </div>
+        <button
+          onClick={() => onAddWidget("health")}
+          className="flex gap-2 w-full text-left px-3 py-2 rounded-md hover:bg-zinc-800 transition"
+        >
+          <HeartIcon /> Health Bar
+        </button>
       </nav>
     </aside>
   );
