@@ -1,30 +1,30 @@
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Inter, Tektur } from 'next/font/google';
-import './globals.css';
+import type { Metadata } from "next";
+import { Geist, Geist_Mono, Inter, Tektur } from "next/font/google";
+import "./globals.css";
 
 const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+  subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 const tektur = Tektur({
-  subsets: ['latin'],
-  variable: '--font-tektur',
+  subsets: ["latin"],
+  variable: "--font-tektur",
 });
 
 export const metadata: Metadata = {
-  title: 'Rollkeeper',
-  description: 'All-in-one RPG dashboard',
+  title: "Rollkeeper",
+  description: "All-in-one RPG dashboard",
 };
 
 export default function RootLayout({
