@@ -1,10 +1,7 @@
 "use client";
-
 import { useState } from "react";
 import Sidebar from "@/components/sidebar";
-
 import { Widget } from "../types/widgets";
-
 import DiceRoller from "@/components/diceRoller";
 import HealthBar from "@/components/healthBar";
 
@@ -27,12 +24,10 @@ export default function Dashboard() {
   return (
     <div className="flex h-screen bg-white text-zinc-900">
       <Sidebar onAddWidget={addWidget} />
-
       <main className="flex-1 overflow-auto p-6 bg-zinc-50">
-        <div className="grid grid-cols-3 gap-4">
+        <div className="flex flex-wrap gap-4 items-start content-start">
           {widgets.map((w) => {
             const Component = widgetMap[w.type];
-
             return <Component key={w.id} onClose={() => removeWidget(w.id)} />;
           })}
         </div>
