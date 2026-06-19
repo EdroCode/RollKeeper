@@ -12,8 +12,8 @@ type Props = {
 export default function Sidebar({ onAddWidget }: Props) {
   return (
     <aside className="w-56 shrink-0 border-r border-zinc-800 bg-zinc-950 text-white flex flex-col">
-      <Link href="./" className="flex gap-4 px-4 py-5 border-b border-zinc-800">
-        <Image src={"./d20White.svg"} className="w-12" alt="d20-logo" />
+      <Link href="./" className="flex gap-3 px-4 py-6 border-b border-zinc-800">
+        <Image src="./d20White.svg" alt="d20-logo" width={48} height={40} />
         <div className="flex flex-col">
           <h1 className="text-lg font-bold">RollKeeper</h1>
           <p className="text-xs text-zinc-400">RPG Dashboard</p>

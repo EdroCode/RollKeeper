@@ -2,11 +2,13 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="flex flex-col gap-8 bg-white px-12 py-56 text-center border-b border-zinc-200">
+    <section className="flex flex-col gap-8 bg-white px-12 py-56 items-center text-center border-b border-zinc-200">
       <Image
+        src="./d20.svg"
         alt="logo"
-        src={"./d20.svg"}
-        className="h-24 hover:rotate-360 hover:scale-110 transition-all duration-400"
+        width={96}
+        height={96}
+        className="hover:rotate-360 hover:scale-110 transition-all duration-400"
       />
       <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-zinc-400">
         RPG dashboard · Closed beta
