@@ -1,4 +1,3 @@
-import { Dice6, Heart } from "lucide-react";
 import { WidgetType } from "@/app/types/widgets";
 
 type Props = {

@@ -1,7 +1,9 @@
 "use client";
 
 import { WidgetType } from "@/app/types/widgets";
-import { Dice6, HeartIcon } from "lucide-react";
+import { Dices, HeartIcon } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   onAddWidget: (type: WidgetType) => void;
@@ -10,17 +12,20 @@ type Props = {
 export default function Sidebar({ onAddWidget }: Props) {
   return (
     <aside className="w-56 shrink-0 border-r border-zinc-800 bg-zinc-950 text-white flex flex-col">
-      <div className="px-4 py-5 border-b border-zinc-800">
-        <h1 className="text-lg font-bold">RollKeeper</h1>
-        <p className="text-xs text-zinc-400">RPG Dashboard</p>
-      </div>
+      <Link href="./" className="flex gap-4 px-4 py-5 border-b border-zinc-800">
+        <Image src={"./d20White.svg"} className="w-12" alt="d20-logo" />
+        <div className="flex flex-col">
+          <h1 className="text-lg font-bold">RollKeeper</h1>
+          <p className="text-xs text-zinc-400">RPG Dashboard</p>
+        </div>
+      </Link>
 
       <nav className="flex-1 p-3 space-y-2">
         <button
           onClick={() => onAddWidget("dice")}
           className="flex gap-2 w-full text-left px-3 py-2 rounded-md hover:bg-zinc-800 transition"
         >
-          <Dice6 /> Dice Roller
+          <Dices /> Dice Roller
         </button>
 
         <button
