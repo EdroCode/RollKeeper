@@ -20,6 +20,7 @@ const inter = Inter({
 const tektur = Tektur({
   subsets: ["latin"],
   variable: "--font-tektur",
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {

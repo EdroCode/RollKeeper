@@ -1,8 +1,8 @@
 // app/page.tsx
-import Hero from "@/components/hero";
-import Features from "@/components/features";
-import Widgets from "@/components/contribute";
-import Footer from "@/components/footer";
+import Hero from "@/components/home/hero";
+import Features from "@/components/home/features";
+import Widgets from "@/components/home/contribute";
+import Footer from "@/components/home/footer";
 
 export default function Home() {
   return (
