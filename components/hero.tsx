@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="flex flex-col gap-8 bg-white px-12 py-56 items-center text-center border-b border-zinc-200">
+    <section className="flex flex-col gap-8 bg-white px-12 py-40 items-center text-center border-b border-zinc-200">
       <Image
         src="./d20.svg"
         alt="logo"
