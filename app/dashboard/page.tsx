@@ -2,26 +2,37 @@
 import { useState } from "react";
 import Navbar from "@/components/navbar";
 import { Widget, WidgetType } from "../types/widgets";
-import DiceRoller from "@/components/tools/diceRoller";
-import HealthBar from "@/components/tools/healthBar";
+import OverviewSection from "@/components/overview/overviewSection";
+import CombatSection from "@/components/combat/combatSection";
 
 type Section = "overview" | "combat" | "players";
 
-const widgetMap = {
-  dice: DiceRoller,
-  health: HealthBar,
-};
+type SectionWidgets = Record<Exclude<Section, "overview">, Widget[]>;
 
 export default function Dashboard() {
-  const [widgets, setWidgets] = useState<Widget[]>([]);
   const [activeSection, setActiveSection] = useState<Section>("overview");
+  const [sectionWidgets, setSectionWidgets] = useState<SectionWidgets>({
+    combat: [],
+    players: [],
+  });
 
   function addWidget(type: WidgetType) {
-    setWidgets((prev) => [...prev, { id: crypto.randomUUID(), type }]);
+    if (activeSection === "overview") return;
+    setSectionWidgets((prev) => ({
+      ...prev,
+      [activeSection]: [
+        ...prev[activeSection],
+        { id: crypto.randomUUID(), type },
+      ],
+    }));
   }
 
   function removeWidget(id: string) {
-    setWidgets((prev) => prev.filter((w) => w.id !== id));
+    if (activeSection === "overview") return;
+    setSectionWidgets((prev) => ({
+      ...prev,
+      [activeSection]: prev[activeSection].filter((w) => w.id !== id),
+    }));
   }
 
   return (
@@ -32,12 +43,13 @@ export default function Dashboard() {
         onSectionChange={setActiveSection}
       />
       <main className="flex-1 overflow-auto p-6 bg-zinc-50">
-        <div className="flex flex-wrap gap-4 items-start content-start">
-          {widgets.map((w) => {
-            const Component = widgetMap[w.type];
-            return <Component key={w.id} onClose={() => removeWidget(w.id)} />;
-          })}
-        </div>
+        {activeSection === "overview" && <OverviewSection />}
+        {activeSection === "combat" && (
+          <CombatSection
+            widgets={sectionWidgets.combat}
+            onRemoveWidget={removeWidget}
+          />
+        )}
       </main>
     </div>
   );

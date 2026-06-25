@@ -52,7 +52,12 @@ export default function Navbar({
           ))}
         </nav>
         <div className="flex gap-4 items-center">
-          <AddWidget onAddWidget={onAddWidget} activeSection={activeSection} />
+          {activeSection !== "overview" && (
+            <AddWidget
+              onAddWidget={onAddWidget}
+              activeSection={activeSection}
+            />
+          )}
           <Settings className="text-zinc-950" strokeWidth={1.8} />
         </div>
       </div>
